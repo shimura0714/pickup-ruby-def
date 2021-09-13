@@ -5,6 +5,6 @@ for filepath in `\find ${DIR} -type f` # 入力からディレクトリをファ
 do
   if [[ ${filepath} =~ '[.]rb$' ]]; then # rubyのファイルか判定
     echo $filepath
-    grep -e '^  def ' $filepath >&1
+    grep -E '^[ ]{2,6}def ' $filepath >&1
   fi
 done
