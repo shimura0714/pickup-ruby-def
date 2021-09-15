@@ -4,7 +4,6 @@ DIR="$1" # コマンドライン引数から検索するディレクトリを取
 for filepath in `\find ${DIR} -type f` # 入力からディレクトリをファイルに絞って検索
 do
   if [[ ${filepath} =~ '[.]rb$' ]]; then # rubyのファイルか判定
-    echo $filepath
-    grep -E '^[ ]{2,6}def ' $filepath >&1
+    grep -E '^[ ]{2,6}def|scop: ' $filepath >&1
   fi
 done
